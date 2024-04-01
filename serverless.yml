@@ -1,0 +1,31 @@
+service: get-products-list-API
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: eu-west-1
+
+functions:
+  getProductsList:
+    handler: getProductsList/getProductsList.getProductsList
+    events:
+      - http:
+          path: products
+          method: get
+          cors: true
+
+  getProductsById:
+    handler: getProductsById/getProductsById.getProductsById
+    events:
+      - http:
+          path: products/{productId}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                productId: true
+

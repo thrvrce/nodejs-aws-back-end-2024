@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "title": "Intel CPU",
+      "description": "Intel CPU description",
+      "price": 300,
+      "imageUrl": "//images.unsplash.com/photo-1540829917886-91ab031b1764?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW50ZWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "count": 10
+    },
+    {
+      "title": "AMD CPU",
+      "description": "AMD CPU description",
+      "price": 250,
+      "imageUrl": "//images.unsplash.com/photo-1568209865332-a15790aed756?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YW1kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "count": 15
+    },
+    {
+      "title": "Motherboard",
+      "description": "Some motherboard description",
+      "price": 170,
+      "imageUrl": "//images.unsplash.com/photo-1522920192563-6df902920a8a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXN1cyUyMG1vdGhlcmJvYXJkfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "count": 20
+    },
+    {
+      "title": "RAM",
+      "description": "Dome RAM description",
+      "price": 100,
+      "imageUrl": "//images.unsplash.com/photo-1562976540-1502c2145186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFtfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      "count": 40
+    },
+    {
+      "title": "SSD",
+      "description": "Some SSD description",
+      "price": 100,
+      "imageUrl": "//images.unsplash.com/photo-1615293889204-6db03c596147?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3NkfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "count": 50
+    },
+    {
+      "title": "Videocard",
+      "description": "Some videocard description",
+      "price": 1000,
+      "imageUrl": "//media.istockphoto.com/photos/graphic-card-picture-id185249594?b=1&k=20&m=185249594&s=170667a&w=0&h=WS7GN92b8zbyod8sOUdjk_ZlN9kgPls0MnjrGb4K708=",
+      "count": 20
+    },
+    {
+      "title": "Mouse",
+      "description": "Some mouse description",
+      "price": 50,
+      "imageUrl": "//images.unsplash.com/photo-1615663245857-ac93bb7c39e7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "count": 70
+    },
+    {
+      "title": "Keyboard",
+      "description": "Some keyboard description",
+      "price": 40,
+      "imageUrl": "//images.unsplash.com/photo-1584727129739-cd30984745bc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8a2V5Ym9hcmQlMjBhbmQlMjBtb3VzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "count": 80
+    }
+  ]
+}

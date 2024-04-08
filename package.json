@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "import:database" : "node ./dynamoDbImport/index.js",
+    "deploy": "serverless deploy"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.549.0",
+    "@aws-sdk/lib-dynamodb": "^3.549.0",
+    "dotenv": "^16.4.5",
+    "uuid": "^9.0.1"
+  }
+}

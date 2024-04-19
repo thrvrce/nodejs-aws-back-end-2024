@@ -1,7 +1,7 @@
 {
   "scripts": {
     "import:database" : "node ./dynamoDbImport/index.js",
-    "deploy": "serverless deploy"
+    "deploy": "serverless deploy --force"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.549.0",

@@ -12,9 +12,60 @@ provider:
     REGION:  ${env:REGION}
     PRODUCTS_TABLE: ${env:PRODUCTS_TABLE}
     STOCK_TABLE: ${env:STOCK_TABLE}
+    SQS_URL:
+      Ref: SQSQueue
+    SNS_ARN:
+      Ref: SNSTopic
+  iamRoleStatements:
+  - Effect: "Allow"
+    Action:
+      - "SNS:*"
+    Resource: "*"
+  - Effect: "Allow"
+    Action:
+      - "SQS:*"
+    Resource: "*"
 
+resources:
+  Resources:
+    SQSQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: catalogItemsQueue
+        ReceiveMessageWaitTimeSeconds: 20
+    SNSTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: catalogBatchProcess-SNS
+    SNSSubscription:
+      Type: AWS::SNS::Subscription
+      Properties:
+        Endpoint: avdeevvictor95@gmail.com
+        Protocol: email
+        TopicArn:
+          Ref: SNSTopic
+  Outputs:
+    CatalogItemsQueueUrl:
+        Value:
+          Ref: SQSQueue
+        Export:
+          Name: catalogItemsQueueUrl
+    CatalogItemsQueueArn:
+        Value: !GetAtt SQSQueue.Arn
+        Export:
+          Name: catalogItemsQueueArn
 
 functions:
+  catalogBatchProcess:
+    handler: catalogBatchProcess/catalogBatchProcess.catalogBatchProcess
+    role: ${env:IMPORT_PRODUCT_LAMBDA_ROLE}
+    events:
+      - sqs:
+          batchSize: 5
+          arn:
+              Fn::GetAtt:
+                  - SQSQueue
+                  - Arn
   getProductsList:
     handler: getProductsList/getProductsList.getProductsList
     role: ${env:DB_ACCESS_ROLE}

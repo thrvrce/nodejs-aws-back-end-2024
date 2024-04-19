@@ -1,0 +1,9 @@
+title,description,price,imageUrl,count
+Intel CPU,Intel CPU description,300,//images.unsplash.com/photo-1540829917886-91ab031b1764?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW50ZWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,10
+AMD CPU,AMD CPU description,250,//images.unsplash.com/photo-1568209865332-a15790aed756?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YW1kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,15
+Motherboard,Some motherboard description,170,//images.unsplash.com/photo-1522920192563-6df902920a8a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXN1cyUyMG1vdGhlcmJvYXJkfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,20
+RAM,Dome RAM description,100,//images.unsplash.com/photo-1562976540-1502c2145186?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmFtfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60,40
+SSD,Some SSD description,100,//images.unsplash.com/photo-1615293889204-6db03c596147?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3NkfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,50
+Videocard,Some videocard description,1000,//media.istockphoto.com/photos/graphic-card-picture-id185249594?b=1&k=20&m=185249594&s=170667a&w=0&h=WS7GN92b8zbyod8sOUdjk_ZlN9kgPls0MnjrGb4K708=,20
+Mouse,Some mouse description,50,//images.unsplash.com/photo-1615663245857-ac93bb7c39e7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,70
+Keyboard,Some keyboard description,40,//images.unsplash.com/photo-1584727129739-cd30984745bc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8a2V5Ym9hcmQlMjBhbmQlMjBtb3VzZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,80

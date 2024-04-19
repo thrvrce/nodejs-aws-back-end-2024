@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "deploy": "serverless deploy --force"
+  },
   "dependencies": {
     "aws-sdk": "^2.1601.0",
     "csv-parser": "^3.0.0"

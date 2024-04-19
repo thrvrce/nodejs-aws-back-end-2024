@@ -1,6 +1,7 @@
 const AWS = require("aws-sdk");
 const csv = require("csv-parser");
 
+const { CATALOG_ITEMS_QUEUE } = process.env;
 const BUCKET = "task-5-uploaded";
 const IMPORT_FOLDER = "uploaded/";
 
@@ -38,13 +39,14 @@ const importProductsFile = async (event) => {
 
 const importFileParser = async (event) => {
   const s3 = new AWS.S3({ region: "eu-west-1" });
+  const sqs = new AWS.SQS();
   let statusCode = 200;
 
   try {
     const streams = [];
 
     event.Records.forEach((record) => {
-      const s3Stream =  s3
+      const s3Stream = s3
         .getObject({
           Bucket: BUCKET,
           Key: record.s3.object.key,
@@ -52,25 +54,37 @@ const importFileParser = async (event) => {
 
       const streamPromise = new Promise((resolve, reject) => {
         s3Stream
-        .pipe(csv())
-        .on("data", (data) => console.log(data))
-        .on("end", async () => {
-          console.log(`Copy from ${BUCKET}/${record.s3.object.key}`);
-          await s3
-            .copyObject({
+          .pipe(csv())
+          .on("data", async (data) => {
+
+            try {
+              await sqs.sendMessage({
+                QueueUrl: CATALOG_ITEMS_QUEUE,
+                MessageBody: JSON.stringify(data),
+              }).promise();
+            } catch (err) {
+              console.log(err)
+              throw err
+            }
+
+          })
+          .on("end", async () => {
+            console.log(`Copy from ${BUCKET}/${record.s3.object.key}`);
+            await s3
+              .copyObject({
+                Bucket: BUCKET,
+                CopySource: BUCKET + "/" + record.s3.object.key,
+                Key: record.s3.object.key.replace("uploaded", "parsed"),
+              })
+              .promise();
+            console.log(`Copied into ${BUCKET}/${record.s3.object.key.replace("uploaded", "parsed")}`);
+            await s3.deleteObject({
               Bucket: BUCKET,
-              CopySource: BUCKET + "/" + record.s3.object.key,
-              Key: record.s3.object.key.replace("uploaded", "parsed"),
-            })
-            .promise();
-          console.log(`Copied into ${BUCKET}/${record.s3.object.key.replace("uploaded", "parsed")}`);
-          await s3.deleteObject({
-            Bucket: BUCKET,
-            Key: record.s3.object.key,
-          }).promise();
-          resolve();
-        })
-        .on("error", async (error) => {console.log(`error: ${error} \n`); reject(error)})
+              Key: record.s3.object.key,
+            }).promise();
+            resolve();
+          })
+          .on("error", async (error) => { console.log(`error: ${error} \n`); reject(error) })
       });
       streams.push(streamPromise);
     });
